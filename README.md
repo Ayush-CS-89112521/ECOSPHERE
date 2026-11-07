@@ -28,4 +28,6 @@ For account features, connect Clerk to Supabase and apply the SQL files in `supa
 
 ## Deploy
 
-Import the repository into Vercel, set the root directory to `frontend`, and add the environment variables there. Next.js serves both the website and its AQI API routes. See [the deployment guide](GIT_AND_DEPLOY.md) for the full setup.
+Import the repository into Vercel, set the root directory to `frontend`, and add the environment variables there. Next.js serves both the website and its AQI API routes.
+
+For production sign-in, configure a custom domain and production Clerk keys, then register the production Clerk domain in Supabase Third-Party Auth.
