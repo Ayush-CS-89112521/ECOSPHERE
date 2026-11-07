@@ -1,5 +1,7 @@
 # EcoSphere
 
+[Open EcoSphere](https://ecosphere-flame-ten.vercel.app/)
+
 EcoSphere is a free air quality dashboard for Delhi NCR. It shows particulate readings from local stations and explains what the AQI bands mean. You can explore the dashboard without an account.
 
 - **Dashboard** pulls station readings from OpenAQ and uses Open-Meteo weather forecasts to estimate a better time to go outside. If station data is unavailable, the dashboard labels the example readings as synthetic.
