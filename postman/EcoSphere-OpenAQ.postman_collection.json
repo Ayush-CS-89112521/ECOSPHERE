@@ -1,0 +1,94 @@
+{
+  "info": {
+    "name": "EcoSphere OpenAQ v3 Intelligence Engine",
+    "_postman_id": "ecosphere-openaq-test-collection-v3",
+    "description": "Postman testing suite for OpenAQ v3 live API integration and EcoSphere Delhi NCR atmospheric intelligence engine.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "OPENAQ_API_KEY",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "BASE_URL",
+      "value": "http://localhost:5000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Live OpenAQ v3 - Delhi Monitoring Locations",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "pm.test('OpenAQ responds with HTTP 200 OK', function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test('Valid OpenAQ v3 envelope with results array', function () {",
+              "    var json = pm.response.json();",
+              "    pm.expect(json).to.be.an('object');",
+              "    pm.expect(json.results).to.be.an('array').that.is.not.empty;",
+              "});",
+              "",
+              "pm.test('Stations report geographical coordinates and parameters', function () {",
+              "    var json = pm.response.json();",
+              "    var firstStation = json.results[0];",
+              "    pm.expect(firstStation).to.have.property('id');",
+              "    pm.expect(firstStation).to.have.property('name');",
+              "    pm.expect(firstStation.sensors).to.be.an('array');",
+              "});"
+            ]
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "X-API-Key",
+            "value": "{{OPENAQ_API_KEY}}",
+            "type": "text"
+          },
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "https://api.openaq.org/v3/locations?coordinates=28.6139,77.2090&radius=25000&limit=5",
+          "protocol": "https",
+          "host": [
+            "api",
+            "openaq",
+            "org"
+          ],
+          "path": [
+            "v3",
+            "locations"
+          ],
+          "query": [
+            {
+              "key": "coordinates",
+              "value": "28.6139,77.2090"
+            },
+            {
+              "key": "radius",
+              "value": "25000"
+            },
+            {
+              "key": "limit",
+              "value": "5"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

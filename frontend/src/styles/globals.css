@@ -1,0 +1,122 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  :root {
+    --bg-ink: #0e110f;
+    --bg-surface: #141815;
+    --bg-raised: #1c221e;
+    --color-ochre: #d49a50;
+    --color-sage: #8faf9a;
+    --color-terracotta: #d97251;
+    --color-parchment: #f5f2ea;
+    --color-parchment-muted: #a8a497;
+    --border-hairline: rgba(255, 255, 255, 0.08);
+  }
+  
+  html {
+    scroll-behavior: smooth;
+    background-color: #0e110f;
+  }
+  
+  body {
+    @apply min-h-screen overflow-x-hidden;
+    background-color: #0e110f;
+    color: #f5f2ea;
+    font-family: var(--font-sans), 'Inter', sans-serif;
+    position: relative;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Warm tactile ambient texture: faint sunlit canopy & warm earth undertones */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 18% 12%, rgba(212, 154, 80, 0.04) 0%, transparent 55%),
+      radial-gradient(circle at 82% 85%, rgba(143, 175, 154, 0.04) 0%, transparent 60%),
+      radial-gradient(circle at 50% 50%, rgba(14, 17, 15, 0.8) 0%, transparent 100%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  ::selection {
+    background-color: #d49a50;
+    color: #0e110f;
+  }
+}
+
+/* Editorial Typography Helpers */
+.font-serif {
+  font-family: var(--font-serif), 'Playfair Display', Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), 'Inter', sans-serif;
+}
+
+.font-mono {
+  font-family: var(--font-mono), 'JetBrains Mono', monospace;
+}
+
+.container-editorial {
+  width: 100%;
+  max-width: 1240px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 48px);
+}
+
+.section-spacing {
+  padding-top: clamp(64px, 8vw, 110px);
+  padding-bottom: clamp(64px, 8vw, 110px);
+}
+
+/* Hairline rule */
+.hairline-divider {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Archival Stamp Pill */
+.archival-badge {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+/* Tactile Editorial Card */
+.editorial-card {
+  background: #141815;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.editorial-card:hover {
+  border-color: rgba(212, 154, 80, 0.35);
+  background: #171c18;
+}
+
+/* Minimalist Warm Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0e110f;
+}
+::-webkit-scrollbar-thumb {
+  background: #252c27;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #d49a50;
+}

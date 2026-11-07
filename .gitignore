@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js Build Output
+.next/
+out/
+build/
+dist/
+*.tsbuildinfo
+next-env.d.ts
+
+# Environment Variables & Secret Keys (CRITICAL - NEVER COMMIT)
+.env
+.env.*
+!.env.example
+!.env.sample
+*.env
+
+# Clerk Local Credentials
+.clerk/
+
+# Supabase CLI project metadata
+supabase/.temp/
+
+# Debug Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+logs/
+*.log
+/verification/*.json
+/verification/*.png
+
+# Vercel & Turbopack
+.vercel
+.turbo
+
+# IDE & Editor Configurations
+.vscode/
+!.vscode/extensions.json
+.idea/
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+
+# Operating System Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
